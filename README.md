@@ -1,5 +1,8 @@
 # Percentage
 
+![Codacy grade](https://img.shields.io/codacy/grade/f4cafede889843cf9bf7196689fa6126)
+![Codacy coverage](https://img.shields.io/codacy/coverage/f4cafede889843cf9bf7196689fa6126)
+
 Percentage calculations made easy.
 
 ## Installation
