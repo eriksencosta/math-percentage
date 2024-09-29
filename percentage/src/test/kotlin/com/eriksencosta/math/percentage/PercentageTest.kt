@@ -15,22 +15,28 @@ class PercentageTest {
     @Test
     fun `Create a Percentage`() {
         val expected = Percentage.of(50)
+
         assertEquals(expected, 50.percent())
         assertEquals(expected, 50.toPercentage())
+        assertEquals(expected, { 50 }.percent())
     }
 
     @Test
     fun `Create a Percentage with PreciseRounding when given a precision`() {
         val expected = Percentage.of(50, 2)
+
         assertEquals(expected, 50.percent(2))
         assertEquals(expected, 50.toPercentage(2))
+        assertEquals(expected, { 50 }.percent(2))
     }
 
     @Test
     fun `Create a Percentage with a Rounding strategy`() {
         val expected = Percentage.of(50, Rounding.to(1, RoundingMode.HALF_DOWN))
+
         assertEquals(expected, 50.percent(Rounding.to(1, RoundingMode.HALF_DOWN)))
         assertEquals(expected, 50.toPercentage(Rounding.to(1, RoundingMode.HALF_DOWN)))
+        assertEquals(expected, { 50 }.percent(Rounding.to(1, RoundingMode.HALF_DOWN)))
     }
 
     @TestFactory

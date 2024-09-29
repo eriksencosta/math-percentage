@@ -50,6 +50,33 @@ public infix fun Number.toPercentage(precision: Int): Percentage = percent(preci
 public infix fun Number.toPercentage(rounding: Rounding): Percentage = percent(rounding)
 
 /**
+ * Creates a [Percentage] based on a number returned by the lambda function. Calculations using it won't be rounded.
+ *
+ * @receiver (() -> Number)
+ * @return A [Percentage].
+ */
+public fun (() -> Number).percent(): Percentage = Percentage.of(this())
+
+/**
+ * Creates a [Percentage] based on a number returned by the lambda function. Calculations using it will be rounded.
+ *
+ * @receiver (() -> Number)
+ * @param[precision] The precision scale to round percentage calculations. The rounding is done using the
+ *   [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_UP] mode).
+ * @return A [Percentage].
+ */
+public fun (() -> Number).percent(precision: Int): Percentage = Percentage.of(this(), precision)
+
+/**
+ * Creates a [Percentage] based on a number returned by the lambda function. Calculations using it will be rounded.
+ *
+ * @receiver (() -> Number)
+ * @param[rounding] The [Rounding] strategy to round the percentage calculations.
+ * @return A [Percentage].
+ */
+public fun (() -> Number).percent(rounding: Rounding): Percentage = Percentage.of(this(), rounding)
+
+/**
  * Creates a [Percentage] based on the ratio of this number and other number. Calculations using it won't be rounded.
  * Example:
  *
