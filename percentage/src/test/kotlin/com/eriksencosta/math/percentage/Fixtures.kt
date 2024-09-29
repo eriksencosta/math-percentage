@@ -24,7 +24,9 @@ internal object Fixtures {
             isPositive = false,
             isPositiveOrZero = false,
             isNegative = true,
-            isNegativeOrZero = true
+            isNegativeOrZero = true,
+            isOneHundred = false,
+            isNotOneHundred = true
         ),
         AccessorsTestTable(
             number = 0,
@@ -33,7 +35,9 @@ internal object Fixtures {
             isPositive = false,
             isPositiveOrZero = true,
             isNegative = false,
-            isNegativeOrZero = true
+            isNegativeOrZero = true,
+            isOneHundred = false,
+            isNotOneHundred = true
         ),
         AccessorsTestTable(
             number = 1,
@@ -42,8 +46,32 @@ internal object Fixtures {
             isPositive = true,
             isPositiveOrZero = true,
             isNegative = false,
-            isNegativeOrZero = false
-        )
+            isNegativeOrZero = false,
+            isOneHundred = false,
+            isNotOneHundred = true
+        ),
+        AccessorsTestTable(
+            number = 100,
+            isZero = false,
+            isNotZero = true,
+            isPositive = true,
+            isPositiveOrZero = true,
+            isNegative = false,
+            isNegativeOrZero = false,
+            isOneHundred = true,
+            isNotOneHundred = false
+        ),
+        AccessorsTestTable(
+            number = -100,
+            isZero = false,
+            isNotZero = true,
+            isPositive = false,
+            isPositiveOrZero = false,
+            isNegative = true,
+            isNegativeOrZero = true,
+            isOneHundred = true,
+            isNotOneHundred = false
+        ),
     )
 
     val ratioOf = listOf(
@@ -308,7 +336,9 @@ internal data class AccessorsTestTable(
     val isPositive: Boolean,
     val isPositiveOrZero: Boolean,
     val isNegative: Boolean,
-    val isNegativeOrZero: Boolean
+    val isNegativeOrZero: Boolean,
+    val isOneHundred: Boolean,
+    val isNotOneHundred: Boolean
 )
 
 internal data class Quadruple<out A, out B, out C, out D>(val first: A, val second: B, val third: C, val fourth: D) {

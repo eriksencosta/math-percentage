@@ -6,6 +6,7 @@ import com.eriksencosta.math.common.Rounding
 import java.math.RoundingMode
 import java.util.Objects.hash
 import kotlin.math.abs
+import kotlin.math.absoluteValue
 import kotlin.math.round
 
 /**
@@ -100,6 +101,16 @@ public class Percentage private constructor(value: Number, private val rounding:
      * true if the percentage is negative or zero.
      */
     public val isNegativeOrZero: Boolean = isNegative || isZero
+
+    /**
+     * true if the percentage absolute value equals to 100%.
+     */
+    public val isOneHundred: Boolean = 1.0 == decimal.absoluteValue
+
+    /**
+     * true if the percentage absolute value is not equal to 100%.
+     */
+    public val isNotOneHundred: Boolean = !isOneHundred
 
     /**
      * Creates a [Percentage] based on this one with a new precision scale. Calculations using it will be rounded.

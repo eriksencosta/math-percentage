@@ -82,6 +82,22 @@ class PercentageTest {
         }
 
     @TestFactory
+    fun `Return true when the percentage equals one hundred`() = Fixtures.accessors
+        .map {
+            dynamicTest("given percentage for ${it.number} then I should get ${it.isOneHundred}") {
+                assertEquals(it.isOneHundred, Percentage.of(it.number).isOneHundred)
+            }
+        }
+
+    @TestFactory
+    fun `Return true when the percentage is not equal to one hundred`() = Fixtures.accessors
+        .map {
+            dynamicTest("given percentage for ${it.number} then I should get ${it.isNotOneHundred}") {
+                assertEquals(it.isNotOneHundred, Percentage.of(it.number).isNotOneHundred)
+            }
+        }
+
+    @TestFactory
     fun `Calculate the percentage ratio of two numbers`() = Fixtures.ratioOf
         .map { (number, other, expected) ->
             dynamicTest("given numbers $number and $other then I should get $expected") {
