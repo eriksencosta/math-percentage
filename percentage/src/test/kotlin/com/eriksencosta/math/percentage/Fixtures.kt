@@ -330,11 +330,13 @@ internal object Fixtures {
             Percentage.of(15, 2),
             Percentage.of(30, 4),
         ) to Percentage.of(50),
+
         listOf(
             Percentage.of(50, 2),
             Percentage.of(30, 4),
             Percentage.of(20, 6),
         ) to Percentage.of(100, 2),
+
         listOf(
             Percentage.of(25, Rounding.to(2, up)),
             Percentage.of(50, Rounding.no()),

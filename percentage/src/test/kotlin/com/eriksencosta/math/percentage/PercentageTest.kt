@@ -307,7 +307,7 @@ class PercentageTest {
     }
 
     @TestFactory
-    fun `Calculate the percentage hash code`() = listOf(
+    fun `Calculate the hash code`() = listOf(
         Percentage.of(100) to 1_041_237_863,
         Percentage.of(100, 2) to -1_106_245_692,
     )
