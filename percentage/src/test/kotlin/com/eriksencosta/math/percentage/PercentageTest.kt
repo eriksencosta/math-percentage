@@ -10,8 +10,6 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
 class PercentageTest {
-    private val oneThird = (1 / 3.0) * 100
-
     @Test
     fun `Create a Percentage`() {
         val expected = Percentage.of(50)
@@ -273,6 +271,8 @@ class PercentageTest {
 
     @Test
     fun `Order a collection of percentages`() {
+        val oneThird = (1 / 3.0) * 100
+
         val expected = listOf(
             Percentage.of(10),
             Percentage.of(20),
