@@ -7,7 +7,7 @@ import java.math.RoundingMode
 import java.util.Objects.hash
 import kotlin.math.abs
 import kotlin.math.absoluteValue
-import kotlin.math.round
+import kotlin.math.truncate
 
 /**
  * Represents a [percentage](https://en.wikipedia.org/wiki/Percentage) number, a numerical value divided by 100.
@@ -197,7 +197,10 @@ public class Percentage private constructor(value: Number, private val rounding:
 
     override fun hashCode(): Int = hash(decimal, rounding)
 
-    override fun toString(): String = (if (abs(value) - abs(round(value)) == 0.0) "%.0f%%" else "%.2f%%").format(value)
+    override fun toString(): String = when (0.0 != (value - truncate(value))) {
+        true -> "%.${value.toBigDecimal().scale()}f%%".format(value)
+        false -> "%d%%".format(value.toLong())
+    }
 
     /**
      * A [Percentage] factory.

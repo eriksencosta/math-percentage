@@ -301,14 +301,16 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Convert the percentage to string`() = listOf(
+    fun `Convert Percentage to string`() = listOf(
         Pair(Percentage.of(-10), "-10%"),
         Pair(Percentage.of(1), "1%"),
+        Pair(Percentage.of(4.5), "4.5%"),
+        Pair(Percentage.of(12.75), "12.75%"),
         Pair(Percentage.of(100), "100%"),
-        Pair(Percentage.of(oneThird), "33.33%"),
-        Pair(Percentage.of(-100.0 / 3.0), "-33.33%"),
-        Pair(Percentage.of(-100.0 / 3.0, 2), "-33.33%"),
-        Pair(Percentage.of(513.0 / 53.0), "9.68%"),
+        Pair(Percentage.of(oneThird), "33.33333333333333%"),
+        Pair(Percentage.of(-100.0 / 3.0), "-33.333333333333336%"),
+        Pair(Percentage.of(-100.0 / 3.0, 2), "-33.333333333333336%"),
+        Pair(Percentage.of(513.0 / 53.0), "9.679245283018869%"),
     )
         .map { (percentage, expected) ->
             dynamicTest("given $percentage when I convert it to string then I should get $expected") {
