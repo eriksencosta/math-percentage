@@ -1,6 +1,24 @@
 package com.eriksencosta.math.percentage
 
 import com.eriksencosta.math.common.Rounding
+import com.eriksencosta.math.percentage.Fixtures.accessors
+import com.eriksencosta.math.percentage.Fixtures.collections
+import com.eriksencosta.math.percentage.Fixtures.decrease
+import com.eriksencosta.math.percentage.Fixtures.detailedStrings
+import com.eriksencosta.math.percentage.Fixtures.increase
+import com.eriksencosta.math.percentage.Fixtures.ratioOf
+import com.eriksencosta.math.percentage.Fixtures.ratioOfWithPrecision
+import com.eriksencosta.math.percentage.Fixtures.ratioOfWithRounding
+import com.eriksencosta.math.percentage.Fixtures.relativeChange
+import com.eriksencosta.math.percentage.Fixtures.relativeChangeWithPrecision
+import com.eriksencosta.math.percentage.Fixtures.relativeChangeWithRounding
+import com.eriksencosta.math.percentage.Fixtures.strings
+import com.eriksencosta.math.percentage.Fixtures.times
+import com.eriksencosta.math.percentage.Fixtures.unaryMinus
+import com.eriksencosta.math.percentage.Fixtures.unaryPlus
+import com.eriksencosta.math.percentage.Fixtures.valueWhen
+import com.eriksencosta.math.percentage.Fixtures.withPrecision
+import com.eriksencosta.math.percentage.Fixtures.withRounding
 import org.junit.jupiter.api.DynamicTest.dynamicTest
 import org.junit.jupiter.api.TestFactory
 import org.junit.jupiter.api.assertThrows
@@ -35,7 +53,7 @@ class PercentageTest {
     }
 
     @TestFactory
-    fun `Return true when the percentage is zero`() = Fixtures.accessors
+    fun `Return true when the percentage is zero`() = accessors
         .map {
             dynamicTest("given percentage for ${it.number} then I should get ${it.isZero}") {
                 assertEquals(it.isZero, Percentage.of(it.number).isZero)
@@ -43,7 +61,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Return true when the percentage is not zero`() = Fixtures.accessors
+    fun `Return true when the percentage is not zero`() = accessors
         .map {
             dynamicTest("given percentage for ${it.number} then I should get ${it.isNotZero}") {
                 assertEquals(it.isNotZero, Percentage.of(it.number).isNotZero)
@@ -51,7 +69,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Return true when the percentage is positive`() = Fixtures.accessors
+    fun `Return true when the percentage is positive`() = accessors
         .map {
             dynamicTest("given percentage for ${it.number} then I should get ${it.isPositive}") {
                 assertEquals(it.isPositive, Percentage.of(it.number).isPositive)
@@ -59,7 +77,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Return true when the percentage is positive or zero`() = Fixtures.accessors
+    fun `Return true when the percentage is positive or zero`() = accessors
         .map {
             dynamicTest("given percentage for ${it.number} then I should get ${it.isPositiveOrZero}") {
                 assertEquals(it.isPositiveOrZero, Percentage.of(it.number).isPositiveOrZero)
@@ -67,7 +85,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Return true when the percentage is negative`() = Fixtures.accessors
+    fun `Return true when the percentage is negative`() = accessors
         .map {
             dynamicTest("given percentage for ${it.number} then I should get ${it.isNegative}") {
                 assertEquals(it.isNegative, Percentage.of(it.number).isNegative)
@@ -75,7 +93,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Return true when the percentage is negative or zero`() = Fixtures.accessors
+    fun `Return true when the percentage is negative or zero`() = accessors
         .map {
             dynamicTest("given percentage for ${it.number} then I should get ${it.isNegativeOrZero}") {
                 assertEquals(it.isNegativeOrZero, Percentage.of(it.number).isNegativeOrZero)
@@ -83,7 +101,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Return true when the percentage equals one hundred`() = Fixtures.accessors
+    fun `Return true when the percentage equals one hundred`() = accessors
         .map {
             dynamicTest("given percentage for ${it.number} then I should get ${it.isOneHundred}") {
                 assertEquals(it.isOneHundred, Percentage.of(it.number).isOneHundred)
@@ -91,7 +109,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Return true when the percentage is not equal to one hundred`() = Fixtures.accessors
+    fun `Return true when the percentage is not equal to one hundred`() = accessors
         .map {
             dynamicTest("given percentage for ${it.number} then I should get ${it.isNotOneHundred}") {
                 assertEquals(it.isNotOneHundred, Percentage.of(it.number).isNotOneHundred)
@@ -99,7 +117,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Calculate the percentage ratio of two numbers`() = Fixtures.ratioOf
+    fun `Calculate the percentage ratio of two numbers`() = ratioOf
         .map { (number, other, expected) ->
             dynamicTest("given numbers $number and $other then I should get $expected") {
                 assertEquals(expected, Percentage.ratioOf(number, other))
@@ -108,7 +126,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Calculate the precise percentage ratio of two numbers`() = Fixtures.ratioOfWithPrecision
+    fun `Calculate the precise percentage ratio of two numbers`() = ratioOfWithPrecision
         .map { (number, other, precision, expected) ->
             dynamicTest("given numbers $number and $other, and precision $precision then I should get $expected") {
                 assertEquals(expected, Percentage.ratioOf(number, other, precision))
@@ -117,7 +135,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Calculate the rounded percentage ratio of two numbers`() = Fixtures.ratioOfWithRounding
+    fun `Calculate the rounded percentage ratio of two numbers`() = ratioOfWithRounding
         .map { (number, other, rounding, expected) ->
             dynamicTest("given numbers $number and $other, and rounding $rounding then I should get $expected") {
                 assertEquals(expected, Percentage.ratioOf(number, other, rounding))
@@ -132,7 +150,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Calculate the relative change percentage of two numbers`() = Fixtures.relativeChange
+    fun `Calculate the relative change percentage of two numbers`() = relativeChange
         .map { (initial, ending, expected) ->
             dynamicTest("given $initial and $ending then I should get $expected") {
                 assertEquals(expected, Percentage.relativeChange(initial, ending))
@@ -141,7 +159,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Calculate the precise relative change percentage of two numbers`() = Fixtures.relativeChangeWithPrecision
+    fun `Calculate the precise relative change percentage of two numbers`() = relativeChangeWithPrecision
         .map { (initial, ending, precision, expected) ->
             dynamicTest("given numbers $initial and $ending, and precision $precision then I should get $expected") {
                 assertEquals(expected, Percentage.relativeChange(initial, ending, precision))
@@ -150,7 +168,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Calculate the rounded relative change percentage of two numbers`() = Fixtures.relativeChangeWithRounding
+    fun `Calculate the rounded relative change percentage of two numbers`() = relativeChangeWithRounding
         .map { (initial, ending, rounding, expected) ->
             dynamicTest("given numbers $initial and $ending, and rounding $rounding then I should get $expected") {
                 assertEquals(expected, Percentage.relativeChange(initial, ending, rounding))
@@ -165,7 +183,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Apply a precision to a percentage returns a precise percentage`() = Fixtures.withPrecision
+    fun `Apply a precision to a percentage returns a precise percentage`() = withPrecision
         .map { (percentage, precision, expected) ->
             dynamicTest("given $percentage when I apply precision $precision then I should get $expected") {
                 assertEquals(expected, percentage with precision)
@@ -173,7 +191,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Apply a rounding to a percentage returns a rounded percentage`() = Fixtures.withRounding
+    fun `Apply a rounding to a percentage returns a rounded percentage`() = withRounding
         .map { (percentage, rounding, expected) ->
             dynamicTest("given $percentage when I apply rounding $rounding then I should get $expected") {
                 assertEquals(expected, percentage with rounding)
@@ -181,7 +199,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Calculate the base value of a percentage and its numeric value`() = Fixtures.valueWhen
+    fun `Calculate the base value of a percentage and its numeric value`() = valueWhen
         .map { (percentage, number, expected) ->
             dynamicTest("given $percentage when I calculate the value for $number then I should get $expected") {
                 assertEquals(expected, percentage valueWhen number)
@@ -196,7 +214,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Cast the percentage to its positive value`() = Fixtures.unaryPlus
+    fun `Cast the percentage to its positive value`() = unaryPlus
         .map { (percentage, expected) ->
             dynamicTest("given $percentage when I cast it to positive then I should get $expected") {
                 assertEquals(expected, +percentage)
@@ -204,7 +222,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Negate the percentage`() = Fixtures.unaryMinus
+    fun `Negate the percentage`() = unaryMinus
         .map { (percentage, expected) ->
             dynamicTest("given $percentage when I negate it then I should get $expected") {
                 assertEquals(expected, -percentage)
@@ -212,7 +230,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Multiply a percentage by a number`() = Fixtures.times
+    fun `Multiply a percentage by a number`() = times
         .map { (number, percentage, expected) ->
             dynamicTest("given $percentage when I multiply by $number then I should get $expected") {
                 assertEquals(expected, percentage * number)
@@ -221,7 +239,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Increase a number by a percentage`() = Fixtures.increase
+    fun `Increase a number by a percentage`() = increase
         .map { (number, percentage, expected) ->
             dynamicTest("given $percentage when I increase $number with it then I should get $expected") {
                 assertEquals(expected, percentage increase number)
@@ -230,7 +248,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Decrease a number by a percentage`() = Fixtures.decrease
+    fun `Decrease a number by a percentage`() = decrease
         .map { (number, percentage, expected) ->
             dynamicTest("given $percentage when I decrease $number with it then I should get $expected") {
                 assertEquals(expected, percentage decrease number)
@@ -239,7 +257,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Sum a Collection of Percentage`() = Fixtures.collections
+    fun `Sum a Collection of Percentage`() = collections
         .map { (percentages, expected) ->
             dynamicTest("given $percentages when I sum it then I should get $expected") {
                 assertEquals(expected, (percentages as Iterable<Percentage>).sum())
@@ -318,7 +336,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Convert Percentage to string`() = Fixtures.strings
+    fun `Convert Percentage to string`() = strings
         .map { (percentage, expected) ->
             dynamicTest("given $percentage when I convert it to string then I should get $expected") {
                 assertEquals(expected, percentage.toString())
@@ -326,7 +344,7 @@ class PercentageTest {
         }
 
     @TestFactory
-    fun `Convert Percentage to a detailed string`() = Fixtures.detailedStrings
+    fun `Convert Percentage to a detailed string`() = detailedStrings
         .map { (percentage, expected) ->
             dynamicTest("given $percentage when I convert it to string then I should get $expected") {
                 assertEquals(expected, percentage.toDetailedString())
