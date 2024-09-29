@@ -209,9 +209,9 @@ internal object Fixtures {
         Triple(Percentage.of(100, 4), 6, Percentage.of(100, 6)),
         Triple(Percentage.of(100, 6), 6, Percentage.of(100, 6)),
         Triple(
-            Percentage.of(100, Rounding.to(6, RoundingMode.HALF_DOWN)),
+            Percentage.of(100, Rounding.to(6, halfDown)),
             6,
-            Percentage.of(100, Rounding.to(6, RoundingMode.HALF_DOWN))
+            Percentage.of(100, Rounding.to(6, halfDown))
         ),
     )
 
@@ -223,11 +223,11 @@ internal object Fixtures {
         ),
         Triple(
             Percentage.of(100),
-            Rounding.to(2, RoundingMode.HALF_DOWN),
-            Percentage.of(100, Rounding.to(2, RoundingMode.HALF_DOWN))
+            Rounding.to(2, halfDown),
+            Percentage.of(100, Rounding.to(2, halfDown))
         ),
         Triple(
-            Percentage.of(100, Rounding.to(2, RoundingMode.UP)),
+            Percentage.of(100, Rounding.to(2, halfUp)),
             Rounding.no(),
             Percentage.of(100, Rounding.no())
         ),
@@ -268,8 +268,8 @@ internal object Fixtures {
         Percentage.of(-11.11, 4) to Percentage.of(11.11, 4),
 
         // Rounding case
-        Percentage.of(-11.11, Rounding.to(2, RoundingMode.HALF_DOWN)) to
-            Percentage.of(11.11, Rounding.to(2, RoundingMode.HALF_DOWN))
+        Percentage.of(-11.11, Rounding.to(2, halfDown)) to
+            Percentage.of(11.11, Rounding.to(2, halfDown))
     )
 
     val unaryMinus = listOf(
@@ -281,8 +281,8 @@ internal object Fixtures {
         Percentage.of(11.11, 4) to Percentage.of(-11.11, 4),
 
         // Rounding case
-        Percentage.of(11.11, Rounding.to(2, RoundingMode.HALF_DOWN)) to
-            Percentage.of(-11.11, Rounding.to(2, RoundingMode.HALF_DOWN))
+        Percentage.of(11.11, Rounding.to(2, halfDown)) to
+            Percentage.of(-11.11, Rounding.to(2, halfDown))
     )
 
     val times = listOf(
