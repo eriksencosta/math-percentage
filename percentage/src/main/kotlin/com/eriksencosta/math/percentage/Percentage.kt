@@ -197,9 +197,11 @@ public class Percentage private constructor(value: Number, internal val rounding
 
     override fun hashCode(): Int = hash(decimal, rounding)
 
-    override fun toString(): String = when (0.0 != (value - truncate(value))) {
-        true -> "%.${value.toBigDecimal().scale()}f%%".format(value)
-        false -> "%d%%".format(value.toLong())
+    override fun toString(): String = "%s%%".format(formattedValue())
+
+    internal fun formattedValue(): String = when (0.0 != (value - truncate(value))) {
+        true -> "%.${value.toBigDecimal().scale()}f".format(value)
+        false -> "%d".format(value.toLong())
     }
 
     /**

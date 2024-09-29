@@ -345,6 +345,39 @@ internal object Fixtures {
             Percentage.of(75, Rounding.to(4, up)),
         ) to Percentage.of(150, Rounding.to(2, up)),
     )
+
+    val strings = listOf(
+        Percentage.of(-10) to "-10%",
+        Percentage.of(1) to "1%",
+        Percentage.of(4.5, 2) to "4.5%",
+        Percentage.of(12.75, 4) to "12.75%",
+        Percentage.of(100) to "100%",
+        Percentage.of((1 / 3.0) * 100) to "33.33333333333333%",
+        Percentage.of(-100.0 / 3.0) to "-33.333333333333336%",
+        Percentage.of(-100.0 / 3.0) to "-33.333333333333336%",
+        Percentage.of(513.0 / 53.0) to "9.679245283018869%",
+    )
+
+    val detailedStrings = listOf(
+        Percentage.of(-10) to
+            "Percentage[value=[-10] rounding=[NoRounding]]",
+        Percentage.of(1) to
+            "Percentage[value=[1] rounding=[NoRounding]]",
+        Percentage.of(4.5, 2) to
+            "Percentage[value=[4.5] rounding=[PreciseRounding[2 HALF_UP]]]",
+        Percentage.of(12.75, Rounding.to(4, halfDown)) to
+            "Percentage[value=[12.75] rounding=[PreciseRounding[4 HALF_DOWN]]]",
+        Percentage.of(100) to
+            "Percentage[value=[100] rounding=[NoRounding]]",
+        Percentage.of((1 / 3.0) * 100) to
+            "Percentage[value=[33.33333333333333] rounding=[NoRounding]]",
+        Percentage.of(-100.0 / 3.0) to
+            "Percentage[value=[-33.333333333333336] rounding=[NoRounding]]",
+        Percentage.of(-100.0 / 3.0) to
+            "Percentage[value=[-33.333333333333336] rounding=[NoRounding]]",
+        Percentage.of(513.0 / 53.0) to
+            "Percentage[value=[9.679245283018869] rounding=[NoRounding]]",
+    )
 }
 
 internal data class AccessorsTestTable(
