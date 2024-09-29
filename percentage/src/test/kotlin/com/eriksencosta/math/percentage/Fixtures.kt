@@ -327,6 +327,24 @@ internal object Fixtures {
         Triple(33.33, Percentage.of((77 / 3.0 * 100), Rounding.to(4)), -822.14),
         Triple(33.33, Percentage.of((77 / 3.0 * 100), Rounding.to(4, up)), -822.1401),
     )
+
+    val collections = listOf(
+        listOf(
+            Percentage.of(5),
+            Percentage.of(15, 2),
+            Percentage.of(30, 4),
+        ) to Percentage.of(50),
+        listOf(
+            Percentage.of(50, 2),
+            Percentage.of(30, 4),
+            Percentage.of(20, 6),
+        ) to Percentage.of(100, 2),
+        listOf(
+            Percentage.of(25, Rounding.to(2, up)),
+            Percentage.of(50, Rounding.no()),
+            Percentage.of(75, Rounding.to(4, up)),
+        ) to Percentage.of(150, Rounding.to(2, up)),
+    )
 }
 
 internal data class AccessorsTestTable(

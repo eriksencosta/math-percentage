@@ -61,7 +61,7 @@ import kotlin.math.truncate
  * @param[rounding] The [Rounding] strategy to round the decimal representation of the [Percentage].
  */
 @Suppress("TooManyFunctions")
-public class Percentage private constructor(value: Number, private val rounding: Rounding) : Comparable<Percentage> {
+public class Percentage private constructor(value: Number, internal val rounding: Rounding) : Comparable<Percentage> {
     /**
      * The percentage value.
      */

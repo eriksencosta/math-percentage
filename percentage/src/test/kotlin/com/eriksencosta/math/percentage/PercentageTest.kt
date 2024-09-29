@@ -243,6 +243,20 @@ class PercentageTest {
             }
         }
 
+    @TestFactory
+    fun `Sum a Collection of Percentage`() = Fixtures.collections
+        .map { (percentages, expected) ->
+            dynamicTest("given $percentages when I sum it then I should get $expected") {
+                assertEquals(expected, (percentages as Iterable<Percentage>).sum())
+                assertEquals(expected, percentages.sum())
+                assertEquals(
+                    percentages.first().rounding,
+                    percentages.sum().rounding,
+                    "The rounding strategy of the first element is preserved"
+                )
+            }
+        }
+
     @Test
     fun `Check for equality`() {
         val percentage1 = Percentage.of(100)
