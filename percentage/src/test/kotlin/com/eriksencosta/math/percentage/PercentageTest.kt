@@ -17,7 +17,6 @@ class PercentageTest {
         val expected = Percentage.of(50)
 
         assertEquals(expected, 50.percent())
-        assertEquals(expected, 50.toPercentage())
         assertEquals(expected, { 50 }.percent())
     }
 
@@ -26,7 +25,6 @@ class PercentageTest {
         val expected = Percentage.of(50, 2)
 
         assertEquals(expected, 50.percent(2))
-        assertEquals(expected, 50.toPercentage(2))
         assertEquals(expected, { 50 }.percent(2))
     }
 
@@ -35,7 +33,6 @@ class PercentageTest {
         val expected = Percentage.of(50, Rounding.to(1, RoundingMode.HALF_DOWN))
 
         assertEquals(expected, 50.percent(Rounding.to(1, RoundingMode.HALF_DOWN)))
-        assertEquals(expected, 50.toPercentage(Rounding.to(1, RoundingMode.HALF_DOWN)))
         assertEquals(expected, { 50 }.percent(Rounding.to(1, RoundingMode.HALF_DOWN)))
     }
 

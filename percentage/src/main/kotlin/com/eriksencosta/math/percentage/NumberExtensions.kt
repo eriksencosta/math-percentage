@@ -35,21 +35,6 @@ public infix fun Number.percent(precision: Int): Percentage = percent(Rounding.t
 public infix fun Number.percent(rounding: Rounding): Percentage = Percentage.of(this, rounding)
 
 /**
- * Alias to [Number.percent].
- */
-public fun Number.toPercentage(): Percentage = percent()
-
-/**
- * Alias to [Number.percent].
- */
-public infix fun Number.toPercentage(precision: Int): Percentage = percent(precision)
-
-/**
- * Alias to [Number.percent].
- */
-public infix fun Number.toPercentage(rounding: Rounding): Percentage = percent(rounding)
-
-/**
  * Creates a [Percentage] based on a number returned by the lambda function. Calculations using it won't be rounded.
  *
  * @receiver (() -> Number)
