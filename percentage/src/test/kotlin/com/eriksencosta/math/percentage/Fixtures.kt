@@ -260,33 +260,29 @@ internal object Fixtures {
     )
 
     val unaryPlus = listOf(
-        Pair(minusOne, one),
-        Pair(zero, zero),
-        Pair(one, one),
+        minusOne to one,
+        zero to zero,
+        one to one,
 
         // Precision case
-        Pair(Percentage.of(-11.11, 4), Percentage.of(11.11, 4)),
+        Percentage.of(-11.11, 4) to Percentage.of(11.11, 4),
 
         // Rounding case
-        Pair(
-            Percentage.of(-11.11, Rounding.to(2, RoundingMode.HALF_DOWN)),
+        Percentage.of(-11.11, Rounding.to(2, RoundingMode.HALF_DOWN)) to
             Percentage.of(11.11, Rounding.to(2, RoundingMode.HALF_DOWN))
-        ),
     )
 
     val unaryMinus = listOf(
-        Pair(one, minusOne),
-        Pair(zero, zero),
-        Pair(minusOne, one),
+        one to minusOne,
+        zero to zero,
+        minusOne to one,
 
         // Precision case
-        Pair(Percentage.of(11.11, 4), Percentage.of(-11.11, 4)),
+        Percentage.of(11.11, 4) to Percentage.of(-11.11, 4),
 
         // Rounding case
-        Pair(
-            Percentage.of(11.11, Rounding.to(2, RoundingMode.HALF_DOWN)),
+        Percentage.of(11.11, Rounding.to(2, RoundingMode.HALF_DOWN)) to
             Percentage.of(-11.11, Rounding.to(2, RoundingMode.HALF_DOWN))
-        ),
     )
 
     val times = listOf(
