@@ -379,7 +379,7 @@ internal object Fixtures {
         Percentage.of(1) to
             "Percentage[value=[1] rounding=[NoRounding]]",
         Percentage.of(4.5, 2) to
-            "Percentage[value=[4.5] rounding=[PreciseRounding[2 HALF_UP]]]",
+            "Percentage[value=[4.5] rounding=[PreciseRounding[2 HALF_EVEN]]]",
         Percentage.of(12.75, Rounding.to(4, halfDown)) to
             "Percentage[value=[12.75] rounding=[PreciseRounding[4 HALF_DOWN]]]",
         Percentage.of(100) to

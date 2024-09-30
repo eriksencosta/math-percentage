@@ -63,7 +63,7 @@ value * percentage  // 14.73679171
 value * roundsFloor // 14.73
 ```
 
-The rounding mode to use is defined by one of `RoundingMode` enum values. If you need to use `HALF_UP`, just pass the
+The rounding mode to use is defined by one of `RoundingMode` enum values. If you need to use `HALF_EVEN`, just pass the
 number of desired decimal places:
 
 ```kotlin
@@ -85,7 +85,7 @@ To create a `Percentage` based on a ratio (e.g. 1/2, 1/3, 1/4, and so on), use t
 The function also has overloaded versions to control the rounding strategy of the returned `Percentage` object:
 
 ```kotlin
-// rounds using 2 decimal places and with RoundingMode.HALF_UP
+// rounds using 2 decimal places and with RoundingMode.HALF_EVEN
 1.ratioOf(3, 2)
 
 // rounds using 2 decimal places and with RoundingMode.UP
@@ -104,7 +104,7 @@ To calculate the relative change between two numbers, use the `relativeChange()`
 The function also has overloaded versions to control the rounding strategy of the returned `Percentage` object:
 
 ```kotlin
-// rounds using 2 decimal places and with RoundingMode.HALF_UP
+// rounds using 2 decimal places and with RoundingMode.HALF_EVEN
 3.relativeChange(1, 2)
 
 // rounds using 2 decimal places and with RoundingMode.UP

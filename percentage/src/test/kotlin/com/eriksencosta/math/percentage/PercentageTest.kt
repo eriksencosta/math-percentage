@@ -334,8 +334,8 @@ class PercentageTest {
 
     @TestFactory
     fun `Calculate the hash code`() = listOf(
-        Percentage.of(100) to 1_041_237_863,
-        Percentage.of(100, 2) to -1_106_245_692,
+        Percentage.of(100) to 1_041_237_865,
+        Percentage.of(100, 2) to -1_106_245_690,
     )
         .map { (percentage, expected) ->
             dynamicTest("given $percentage when I calculate its hash code then I should get $expected") {
