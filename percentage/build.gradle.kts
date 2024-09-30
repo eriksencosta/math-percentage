@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.math.common)
+    api(libs.math.common)
 
     testImplementation(libs.kotlin.test.junit5)
     testImplementation(libs.junit.jupiter.engine)
