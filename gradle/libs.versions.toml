@@ -6,7 +6,7 @@ kotlin-stdlib = { require = "[1.9,2.0[" }
 detekt = { require = "[1.23.5,2.0[" }
 junit-jupiter-engine = { require = "[5.10,6.0[" }
 junit-platform-launcher = { require = "[1.10,2.0[" }
-math-common = { require = "[0.1,1.0[" }
+math-common = { require = "bigdecimal-rounding-SNAPSHOT" }
 sonatype-central-upload = { require = "[1.0.3,2.0[" }
 
 [libraries]
@@ -16,7 +16,7 @@ detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", 
 detekt-libraries = { module = "io.gitlab.arturbosch.detekt:detekt-rules-libraries", version.ref = "detekt" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter-engine" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit-platform-launcher" }
-math-common = { module = "com.eriksencosta.math:common", version.ref = "math-common" }
+math-common = { module = "com.eriksencosta:math-common", version.ref = "math-common" }
 
 [plugins]
 jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-stdlib" }

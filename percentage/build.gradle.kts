@@ -22,9 +22,9 @@ plugins {
     alias(libs.plugins.sonatype.central.upload)
 }
 
-repositories {
-    mavenCentral()
-}
+// repositories {
+//     mavenCentral()
+// }
 
 dependencies {
     api(libs.math.common)
