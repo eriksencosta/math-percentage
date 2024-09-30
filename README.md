@@ -121,6 +121,11 @@ To calculate the base value of a number when it's a given Percentage, use the `v
 
 In other words, the function helps to answer the question "5 is 20% of what number?"
 
+### Code examples
+
+The [UsageExamples](https://github.com/eriksencosta/math-percentage/blob/trunk/percentage/src/test/kotlin/com/eriksencosta/math/percentage/UsageExamples.kt)
+file has more examples of calculations using the Percentage library.
+
 ## API documentation
 
 Read the [API documentation](https://blog.eriksen.com.br/opensource/math-percentage/) for further details.
