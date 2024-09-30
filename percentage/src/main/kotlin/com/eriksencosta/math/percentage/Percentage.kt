@@ -123,7 +123,10 @@ public class Percentage private constructor(value: Number, internal val rounding
      * @param[precision] The precision scale to round percentage calculations.
      * @return A [Percentage] with the precision scale.
      */
-    public infix fun with(precision: Int): Percentage = with(rounding with precision)
+    public infix fun with(precision: Int): Percentage = when (hasRounding) {
+        true -> with(rounding with precision)
+        false -> with(Rounding.to(precision))
+    }
 
     /**
      * Creates a [Percentage] based on this one with a new rounding strategy. Calculations using it will be rounded.
