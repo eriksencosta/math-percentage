@@ -6,7 +6,7 @@ kotlin-stdlib = { require = "[1.9,2.0[" }
 detekt = { require = "[1.23.5,2.0[" }
 junit-jupiter-engine = { require = "[5.10,6.0[" }
 junit-platform-launcher = { require = "[1.10,2.0[" }
-math-common = { require = "[0.1,1.0[" }
+math-common = { require = "[0.2,1.0[" }
 sonatype-central-upload = { require = "[1.0.3,2.0[" }
 
 [libraries]
