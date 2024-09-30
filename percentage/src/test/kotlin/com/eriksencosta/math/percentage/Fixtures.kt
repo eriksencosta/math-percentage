@@ -18,7 +18,7 @@ internal object Fixtures {
 
     val accessors = listOf(
         AccessorsTestTable(
-            number = -1,
+            percentage = Percentage.of(-1),
             isZero = false,
             isNotZero = true,
             isPositive = false,
@@ -26,10 +26,11 @@ internal object Fixtures {
             isNegative = true,
             isNegativeOrZero = true,
             isOneHundred = false,
-            isNotOneHundred = true
+            isNotOneHundred = true,
+            hasRounding = false,
         ),
         AccessorsTestTable(
-            number = 0,
+            percentage = Percentage.of(0),
             isZero = true,
             isNotZero = false,
             isPositive = false,
@@ -37,10 +38,11 @@ internal object Fixtures {
             isNegative = false,
             isNegativeOrZero = true,
             isOneHundred = false,
-            isNotOneHundred = true
+            isNotOneHundred = true,
+            hasRounding = false,
         ),
         AccessorsTestTable(
-            number = 1,
+            percentage = Percentage.of(1),
             isZero = false,
             isNotZero = true,
             isPositive = true,
@@ -48,10 +50,11 @@ internal object Fixtures {
             isNegative = false,
             isNegativeOrZero = false,
             isOneHundred = false,
-            isNotOneHundred = true
+            isNotOneHundred = true,
+            hasRounding = false,
         ),
         AccessorsTestTable(
-            number = 100,
+            percentage = Percentage.of(100),
             isZero = false,
             isNotZero = true,
             isPositive = true,
@@ -59,10 +62,11 @@ internal object Fixtures {
             isNegative = false,
             isNegativeOrZero = false,
             isOneHundred = true,
-            isNotOneHundred = false
+            isNotOneHundred = false,
+            hasRounding = false,
         ),
         AccessorsTestTable(
-            number = -100,
+            percentage = Percentage.of(-100),
             isZero = false,
             isNotZero = true,
             isPositive = false,
@@ -70,8 +74,21 @@ internal object Fixtures {
             isNegative = true,
             isNegativeOrZero = true,
             isOneHundred = true,
-            isNotOneHundred = false
+            isNotOneHundred = false,
+            hasRounding = false,
         ),
+        AccessorsTestTable(
+            percentage = Percentage.of(100.001, Rounding.to(2)),
+            isZero = false,
+            isNotZero = true,
+            isPositive = true,
+            isPositiveOrZero = true,
+            isNegative = false,
+            isNegativeOrZero = false,
+            isOneHundred = false,
+            isNotOneHundred = true,
+            hasRounding = true,
+        )
     )
 
     val ratioOf = listOf(
@@ -379,7 +396,7 @@ internal object Fixtures {
 }
 
 internal data class AccessorsTestTable(
-    val number: Number,
+    val percentage: Percentage,
     val isZero: Boolean,
     val isNotZero: Boolean,
     val isPositive: Boolean,
@@ -387,7 +404,8 @@ internal data class AccessorsTestTable(
     val isNegative: Boolean,
     val isNegativeOrZero: Boolean,
     val isOneHundred: Boolean,
-    val isNotOneHundred: Boolean
+    val isNotOneHundred: Boolean,
+    val hasRounding: Boolean,
 )
 
 internal data class Quadruple<out A, out B, out C, out D>(val first: A, val second: B, val third: C, val fourth: D) {

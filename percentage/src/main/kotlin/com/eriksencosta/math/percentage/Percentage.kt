@@ -113,6 +113,11 @@ public class Percentage private constructor(value: Number, internal val rounding
     public val isNotOneHundred: Boolean = !isOneHundred
 
     /**
+     * true if rounding support is available.
+     */
+    public val hasRounding: Boolean = rounding is PreciseRounding
+
+    /**
      * Creates a [Percentage] based on this one with a new precision scale. Calculations using it will be rounded.
      *
      * @param[precision] The precision scale to round percentage calculations.

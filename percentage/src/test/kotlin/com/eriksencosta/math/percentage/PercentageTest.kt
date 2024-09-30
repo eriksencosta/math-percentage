@@ -55,64 +55,72 @@ class PercentageTest {
     @TestFactory
     fun `Return true when the percentage is zero`() = accessors
         .map {
-            dynamicTest("given percentage for ${it.number} then I should get ${it.isZero}") {
-                assertEquals(it.isZero, Percentage.of(it.number).isZero)
+            dynamicTest("given ${it.percentage} then I should get ${it.isZero}") {
+                assertEquals(it.isZero, it.percentage.isZero)
             }
         }
 
     @TestFactory
     fun `Return true when the percentage is not zero`() = accessors
         .map {
-            dynamicTest("given percentage for ${it.number} then I should get ${it.isNotZero}") {
-                assertEquals(it.isNotZero, Percentage.of(it.number).isNotZero)
+            dynamicTest("given ${it.percentage} then I should get ${it.isNotZero}") {
+                assertEquals(it.isNotZero, it.percentage.isNotZero)
             }
         }
 
     @TestFactory
     fun `Return true when the percentage is positive`() = accessors
         .map {
-            dynamicTest("given percentage for ${it.number} then I should get ${it.isPositive}") {
-                assertEquals(it.isPositive, Percentage.of(it.number).isPositive)
+            dynamicTest("given ${it.percentage} then I should get ${it.isPositive}") {
+                assertEquals(it.isPositive, it.percentage.isPositive)
             }
         }
 
     @TestFactory
     fun `Return true when the percentage is positive or zero`() = accessors
         .map {
-            dynamicTest("given percentage for ${it.number} then I should get ${it.isPositiveOrZero}") {
-                assertEquals(it.isPositiveOrZero, Percentage.of(it.number).isPositiveOrZero)
+            dynamicTest("given ${it.percentage} then I should get ${it.isPositiveOrZero}") {
+                assertEquals(it.isPositiveOrZero, it.percentage.isPositiveOrZero)
             }
         }
 
     @TestFactory
     fun `Return true when the percentage is negative`() = accessors
         .map {
-            dynamicTest("given percentage for ${it.number} then I should get ${it.isNegative}") {
-                assertEquals(it.isNegative, Percentage.of(it.number).isNegative)
+            dynamicTest("given ${it.percentage} then I should get ${it.isNegative}") {
+                assertEquals(it.isNegative, it.percentage.isNegative)
             }
         }
 
     @TestFactory
     fun `Return true when the percentage is negative or zero`() = accessors
         .map {
-            dynamicTest("given percentage for ${it.number} then I should get ${it.isNegativeOrZero}") {
-                assertEquals(it.isNegativeOrZero, Percentage.of(it.number).isNegativeOrZero)
+            dynamicTest("given ${it.percentage} then I should get ${it.isNegativeOrZero}") {
+                assertEquals(it.isNegativeOrZero, it.percentage.isNegativeOrZero)
             }
         }
 
     @TestFactory
     fun `Return true when the percentage equals one hundred`() = accessors
         .map {
-            dynamicTest("given percentage for ${it.number} then I should get ${it.isOneHundred}") {
-                assertEquals(it.isOneHundred, Percentage.of(it.number).isOneHundred)
+            dynamicTest("given ${it.percentage} then I should get ${it.isOneHundred}") {
+                assertEquals(it.isOneHundred, it.percentage.isOneHundred)
             }
         }
 
     @TestFactory
     fun `Return true when the percentage is not equal to one hundred`() = accessors
         .map {
-            dynamicTest("given percentage for ${it.number} then I should get ${it.isNotOneHundred}") {
-                assertEquals(it.isNotOneHundred, Percentage.of(it.number).isNotOneHundred)
+            dynamicTest("given ${it.percentage} then I should get ${it.isNotOneHundred}") {
+                assertEquals(it.isNotOneHundred, it.percentage.isNotOneHundred)
+            }
+        }
+
+    @TestFactory
+    fun `Return true when there is rounding support`() = accessors
+        .map {
+            dynamicTest("given ${it.percentage.toDetailedString()} then I should get ${it.hasRounding}") {
+                assertEquals(it.hasRounding, it.percentage.hasRounding)
             }
         }
 
