@@ -48,8 +48,8 @@ import kotlin.math.truncate
  * roundingPercentage * number   // 13.11
  * ```
  *
- * By default, the rounding mode used to round the value is [RoundingMode.HALF_UP]. If you need to use another mode, use
- * the factory method which receives a [Rounding] as an argument:
+ * By default, the rounding mode used to round the value is [RoundingMode.HALF_EVEN]. If you need to use another mode,
+ * use the factory method which receives a [Rounding] as an argument:
  *
  * ```
  * Percentage.of(50, Rounding.to(2, RoundingMode.HALF_DOWN))
@@ -230,7 +230,7 @@ public class Percentage private constructor(value: Number, internal val rounding
          * Creates a [Percentage] based on a number. Calculations using it will be rounded.
          *
          * @param[precision] The precision scale to round percentage calculations. The rounding is done using
-         *   the [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_UP] mode).
+         *   the [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_EVEN] mode).
          * @return A [Percentage].
          */
         public fun of(value: Number, precision: Int): Percentage = of(value, Rounding.to(precision))
@@ -267,7 +267,7 @@ public class Percentage private constructor(value: Number, internal val rounding
          * @param[number] The first number.
          * @param[other] The second number.
          * @param[precision] The precision scale to round percentage calculations. The rounding is done using
-         *   the [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_UP] mode).
+         *   the [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_EVEN] mode).
          * @throws[IllegalArgumentException] When `other` is zero.
          * @return A [Percentage] that represents the ratio of [number] and [other].
          */
@@ -332,7 +332,7 @@ public class Percentage private constructor(value: Number, internal val rounding
          * @param[initial] The initial number.
          * @param[ending] The ending number.
          * @param[precision] The precision scale to round percentage calculations. The rounding is done using the
-         *   [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_UP] mode).
+         *   [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_EVEN] mode).
          * @throws[IllegalArgumentException] When [initial] is zero.
          * @return A [Percentage] that represents the percentage change of an initial and ending numbers.
          */

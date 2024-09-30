@@ -20,7 +20,7 @@ public fun Number.percent(): Percentage = percent(Rounding.no())
  *
  * @receiver [Number]
  * @param[precision] The precision scale to round percentage calculations. The rounding is done using the
- * [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_UP] mode).
+ * [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_EVEN] mode).
  * @return The [Percentage] value of this number.
  */
 public infix fun Number.percent(precision: Int): Percentage = percent(Rounding.to(precision))
@@ -47,7 +47,7 @@ public fun (() -> Number).percent(): Percentage = Percentage.of(this())
  *
  * @receiver (() -> Number)
  * @param[precision] The precision scale to round percentage calculations. The rounding is done using the
- *   [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_UP] mode).
+ *   [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_EVEN] mode).
  * @return A [Percentage].
  */
 public fun (() -> Number).percent(precision: Int): Percentage = Percentage.of(this(), precision)
@@ -94,7 +94,7 @@ public infix fun Number.ratioOf(other: Number): Percentage = ratioOf(other, Roun
  * @receiver [Number]
  * @param[other] The other number.
  * @param[precision] The precision scale to round percentage calculations. The rounding is done using the
- *   [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_UP] mode).
+ *   [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_EVEN] mode).
  * @throws[IllegalArgumentException] When [other] is zero.
  * @return A [Percentage] that represents the ratio of this number and the [other] number.
  * @see Percentage.ratioOf
@@ -165,7 +165,7 @@ public infix fun Number.relativeChange(other: Number): Percentage = relativeChan
  * @receiver [Number]
  * @param[other] The other number.
  * @param[precision] The precision scale to round percentage calculations. The rounding is done using the
- *   [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_UP] mode).
+ *   [PreciseRounding] policy (i.e. rounds using [RoundingMode.HALF_EVEN] mode).
  * @throws[IllegalArgumentException] When this number is zero.
  * @return A [Percentage] that represents the percentage change of this number and the [other] number.
  */
