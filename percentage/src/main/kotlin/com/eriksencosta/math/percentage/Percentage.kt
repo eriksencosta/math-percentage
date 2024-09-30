@@ -1,6 +1,5 @@
 package com.eriksencosta.math.percentage
 
-import com.eriksencosta.math.common.NoRounding
 import com.eriksencosta.math.common.PreciseRounding
 import com.eriksencosta.math.common.Rounding
 import java.math.RoundingMode
@@ -217,14 +216,13 @@ public class Percentage private constructor(value: Number, internal val rounding
      */
     public companion object Factory {
         private const val PERCENT: Double = 100.0
-        private val noRounding: NoRounding = Rounding.no()
 
         /**
          * Creates a [Percentage] based on a number. Calculations using it won't be rounded.
          *
          * @return A [Percentage].
          */
-        public fun of(value: Number): Percentage = of(value, noRounding)
+        public fun of(value: Number): Percentage = of(value, Rounding.no())
 
         /**
          * Creates a [Percentage] based on a number. Calculations using it will be rounded.
@@ -255,7 +253,7 @@ public class Percentage private constructor(value: Number, internal val rounding
          * @throws[IllegalArgumentException] When [other] is zero.
          * @return A [Percentage] that represents the ratio of [number] and [other].
          */
-        public fun ratioOf(number: Number, other: Number): Percentage = ratioOf(number, other, noRounding)
+        public fun ratioOf(number: Number, other: Number): Percentage = ratioOf(number, other, Rounding.no())
 
         /**
          * Creates a [Percentage] based on the ratio of two numbers. Calculations using it will be rounded. Example:
@@ -312,7 +310,7 @@ public class Percentage private constructor(value: Number, internal val rounding
          * @return A [Percentage] that represents the percentage change of an initial and ending numbers.
          */
         public fun relativeChange(initial: Number, ending: Number): Percentage =
-            relativeChange(initial, ending, noRounding)
+            relativeChange(initial, ending, Rounding.no())
 
         /**
          * Creates a [Percentage] which represents the relative change of an initial and ending numbers. Calculations
