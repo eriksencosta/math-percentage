@@ -123,8 +123,8 @@ In other words, the function helps to answer the question "5 is 20% of what numb
 
 ### Code examples
 
-The [UsageExamples](https://github.com/eriksencosta/math-percentage/blob/trunk/percentage/src/test/kotlin/com/eriksencosta/math/percentage/UsageExamples.kt)
-file has more examples of calculations using the Percentage library.
+The [UsageExamples](./percentage/src/test/kotlin/com/eriksencosta/math/percentage/UsageExamples.kt) file has more
+examples of calculations using the Percentage library.
 
 ## API documentation
 
