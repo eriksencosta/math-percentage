@@ -1,3 +1,5 @@
+@file:JvmName("PercentageEx")
+
 package com.eriksencosta.math.percentage
 
 /**
