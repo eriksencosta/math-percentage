@@ -1,3 +1,5 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.dokka.gradle.DokkaTask
 import java.net.URI
 import java.util.Locale
@@ -45,6 +47,24 @@ java {
 detekt {
     config.setFrom("../detekt.yml")
     buildUponDefaultConfig = true
+}
+
+testing {
+    suites.withType(JvmTestSuite::class) {
+        targets.all {
+            testTask.configure {
+                testLogging {
+                    exceptionFormat = TestExceptionFormat.FULL
+                    events(
+                        TestLogEvent.FAILED,
+                        TestLogEvent.SKIPPED,
+                        TestLogEvent.STANDARD_ERROR,
+                        TestLogEvent.STANDARD_OUT,
+                    )
+                }
+            }
+        }
+    }
 }
 
 tasks {
