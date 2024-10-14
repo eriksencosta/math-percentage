@@ -29,6 +29,8 @@ If you're using Maven, add to your POM xml file:
 </dependency>
 ```
 
+Percentage is not compatible with the Android SDK at the moment.
+
 ## Usage
 
 The library provides the `Percentage` type: an immutable and thread-safe class that makes percentage calculations easy.
