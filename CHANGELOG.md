@@ -12,6 +12,12 @@ Breaking changes are highlighted with the [BC] prefix.
 The 0.x version may have breaking changes (as foreseen in the Semantic Versioning Specification). Nevertheless, efforts
 will be taken to minimize this kind of change.
 
+## 0.3.0 (2025-04-23)
+
+### Changed
+
+* Math Common dependency to v0.3.0
+
 ## 0.2.0 (2024-10-05)
 
 ### Added
@@ -28,7 +34,7 @@ will be taken to minimize this kind of change.
 * [BC] `Percentage` companion object name to `Factory`
     *  This may lead to issues in case two dependencies use Percentage with different versions (0.2.0 and 0.1.0) or if
        using the companion object qualified name, i.e., calling `Percentage.of()` as `Percentage.Companion.of()`
-* Upgrade Math Common to v0.2.0
+* Math Common dependency to v0.2.0
 
 ### Fixed
 
