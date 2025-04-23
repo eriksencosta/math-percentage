@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.eriksencosta.math:percentage:0.2.0")
+    implementation("com.eriksencosta.math:percentage:0.3.0")
 }
 ```
 
@@ -25,11 +25,9 @@ If you're using Maven, add to your POM xml file:
 <dependency>
     <groupId>com.eriksencosta.math</groupId>
     <artifactId>percentage</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
 </dependency>
 ```
-
-Percentage is not compatible with the Android SDK at the moment.
 
 ## Usage
 
