@@ -50,7 +50,9 @@ class PercentageTest {
     fun `Create a Percentage`() {
         val expected = Percentage.of(50)
 
+        assertEquals(expected, 50.percent)
         assertEquals(expected, 50.percent())
+        assertEquals(expected, { 50 }.percent)
         assertEquals(expected, { 50 }.percent())
     }
 

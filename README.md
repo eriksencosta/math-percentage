@@ -36,19 +36,21 @@ Percentage is not compatible with the Android SDK at the moment.
 The library provides the `Percentage` type: an immutable and thread-safe class that makes percentage calculations easy.
 
 ```kotlin
-150 * 5.5.percent()          // 8.25
-150 decreaseBy 5.5.percent() // 141.75
-150 increaseBy 5.5.percent() // 158.25
+150 * 5.5.percent          // 8.25
+150 decreaseBy 5.5.percent // 141.75
+150 increaseBy 5.5.percent // 158.25
 ```
 
 Under the hood, all calculations are done by the immutable and thread-safe `Percentage` class. You can always query for
 the percentage's original value, and its decimal representation (i.e., its value divided by 100):
 
 ```kotlin
-val percentage = 5.5.percent()
+val percentage = 5.5.percent
 percentage.decimal // 0.055
 percentage.value   // 5.5
 ```
+
+If you prefer a
 
 ### Rounding
 

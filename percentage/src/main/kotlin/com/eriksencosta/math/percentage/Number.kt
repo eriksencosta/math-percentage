@@ -31,6 +31,14 @@ import java.math.RoundingMode
  * @receiver [Number]
  * @return The [Percentage] value of this number.
  */
+public val Number.percent: Percentage get() = percent(Rounding.no())
+
+/**
+ * Creates a [Percentage] based on this number. Calculations using it won't be rounded.
+ *
+ * @receiver [Number]
+ * @return The [Percentage] value of this number.
+ */
 public fun Number.percent(): Percentage = percent(Rounding.no())
 
 /**
@@ -51,6 +59,8 @@ public infix fun Number.percent(precision: Int): Percentage = percent(Rounding.t
  * @return The [Percentage] value of this number.
  */
 public infix fun Number.percent(rounding: Rounding): Percentage = Percentage.of(this, rounding)
+
+public val (() -> Number).percent: Percentage get() = Percentage.of(this())
 
 /**
  * Creates a [Percentage] based on a number returned by the lambda function. Calculations using it won't be rounded.
